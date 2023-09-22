@@ -14,7 +14,7 @@ export const parseFraction = (fraction) => {
 };
 
 
-const Matrix = ({ size, id, onUpdate }) => {
+const Matrix = ({ size, id, onUpdate, namesCriterios,namesAlternativas }) => {
   const [matrix, setMatrix] = useState(
     Array.from({ length: size }, (_, rowIndex) =>
       Array.from({ length: size }, (_, colIndex) =>
