@@ -113,14 +113,17 @@ const handleMatrixUpdate = (updatedMatrix, matrixId) => {
         {matrices.map((matrix, index) => (
           <div key={index}>
             <h2>{matricesTitles[index]}</h2>
-            <Matrix size={matrix.length} id={index === 0 ? 'comCri' : `comAlt${index}`} namesCriterios={namesCriterios} namesAlternativas={namesAlternativas} onUpdate={(updatedMatrix) => handleMatrixUpdate(updatedMatrix, index === 0 ? 'comCri' : `comAlt${index}`)} />
+            <Matrix names={index === 0 ? namesCriterios : namesAlternativas} size={matrix.length} id={index === 0 ? 'comCri' : `comAlt${index}`} onUpdate={(updatedMatrix) => handleMatrixUpdate(updatedMatrix, index === 0 ? 'comCri' : `comAlt${index}`)} />
           </div>
         ))}
       </div>
       <div>
         <button onClick={handleCalcularClick}>Calcular</button>
       </div>
-      {mostrarMatrixOperations && <MatrixOperations matrices={matrices} />} {/* Pasa las matrices a MatrixOperations */}
+      <div>
+        <button onClick={()=>{console.log(matrices)}}>Ok</button>
+      </div>
+      {mostrarMatrixOperations && <MatrixOperations namesCriterios={namesCriterios} namesAlternativas={namesAlternativas} numCriterios={numCriterios} numAlternativas={numAlternativas} matrices={matrices} />} {/* Pasa las matrices a MatrixOperations */}
     </div>
   );
 };

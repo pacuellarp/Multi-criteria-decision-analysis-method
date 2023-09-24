@@ -14,7 +14,7 @@ export const parseFraction = (fraction) => {
 };
 
 
-const Matrix = ({ size, id, onUpdate, namesCriterios,namesAlternativas }) => {
+const Matrix = ({ size, id, onUpdate, names }) => {
   const [matrix, setMatrix] = useState(
     Array.from({ length: size }, (_, rowIndex) =>
       Array.from({ length: size }, (_, colIndex) =>
@@ -66,8 +66,17 @@ const Matrix = ({ size, id, onUpdate, namesCriterios,namesAlternativas }) => {
   return (
     <table>
       <tbody>
+        {/* Agrega una fila adicional para los nombres de las columnas */}
+        <tr>
+          <td></td> {/* Celda vacía en la esquina superior izquierda */}
+          {names.map((nombre, index) => (
+            <td key={index}>{nombre}</td>
+          ))}
+        </tr>
         {matrix.map((row, rowIndex) => (
           <tr key={rowIndex}>
+            {/* Agrega una celda para los nombres de las filas */}
+            <td>{names[rowIndex]}</td>
             {row.map((cell, colIndex) => (
               <td key={colIndex}>
                 <input
@@ -76,7 +85,6 @@ const Matrix = ({ size, id, onUpdate, namesCriterios,namesAlternativas }) => {
                   onChange={(e) => handleInputChange(e, rowIndex, colIndex)}
                   readOnly={rowIndex === colIndex}
                   onBlur={(e) => {
-                    // Convert to decimal when losing focus
                     e.target.value = parseFraction(e.target.value).toString();
                   }}
                 />
