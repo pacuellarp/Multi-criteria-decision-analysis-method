@@ -1,18 +1,25 @@
 import React from 'react';
+import Results from '../../results/results';
 
 const MatrixOperations = ({ matrices, numCriterios, numAlternativas, namesAlternativas, namesCriterios }) => {
 
   const sumas = []
 
-  let datos=[...matrices]
+  let datos=[]
+
+  for (const fila of matrices[0]){
+    if(fila){
+      datos.push([]);
+    }
+  }
+
 
   for (const matriz of matrices){
     if(matriz){
       sumas.push([]);
     }
   }
-  console.log(sumas);
-  console.log(matrices[0].length);
+
 
   for (let i=0;i<sumas.length;i++){
     for(let j=0;j<matrices[i].length;j++){
@@ -28,8 +35,14 @@ const MatrixOperations = ({ matrices, numCriterios, numAlternativas, namesAltern
     }
     a=a+1;
   }
+
+  for(let i=0;i<datos.length;i++){
+    for(let j=0;j<datos.length;j++){
+      datos[i].push(matrices[0][i][j]*1)
+    }
+  }
   
-  let resultados = [...matrices]
+  let resultados = matrices.map((row) => [...row]);
 
   a=0;
   for(const matriz of resultados){
@@ -59,7 +72,6 @@ const MatrixOperations = ({ matrices, numCriterios, numAlternativas, namesAltern
     return promedio;
   };
   
-  console.log(resultados[1][1]);
 
   for (let i=0;i<vectoresPrioridad.length;i++){
     for (let j=0;j<resultados[i].length;j++){
@@ -87,9 +99,6 @@ const MatrixOperations = ({ matrices, numCriterios, numAlternativas, namesAltern
   const rowNames1=[...namesAlternativas]
 
 
-  console.log(resultados);
-  console.log(vectoresPrioridad);
-  console.log(datos);
   return (
     <div>
       <h2>Matrices normalizadas y vectores de prioridad</h2>
@@ -134,6 +143,7 @@ const MatrixOperations = ({ matrices, numCriterios, numAlternativas, namesAltern
           </div>
         ))}
       </div>
+      <Results resultados={resultados} datos={datos} namesAlternativas={namesAlternativas} vectoresPrioridad={vectoresPrioridad}/>
     </div>
   );
 };

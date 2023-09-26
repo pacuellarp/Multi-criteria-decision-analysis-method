@@ -4,6 +4,7 @@ import { parseFraction } from '../matrix/matrix';
 import MatrixOperations from '../matrixOperations/matrixOperations';
 import CriterosAlternativas from '../criterosAlternativas/criterosAlternativas'
 
+
 const AHP = () => {
   const [numCriterios, setNumCriterios] = useState(2);
   const [numAlternativas, setNumAlternativas] = useState(2);
@@ -33,10 +34,6 @@ const handleMatrixUpdate = (updatedMatrix, matrixId) => {
   // Copia el estado actual de matrices
   //const updatedMatrices = [...matrices];
 
-  console.log(`${matrixId}`)
-  console.log(`${matrices}`)
-  console.log(`${updatedMatrices}`)
-
   // Reemplaza la matriz actualizada en el arreglo de matrices
   //updatedMatrices[matrixIndex] = updatedMatrix;
 
@@ -55,7 +52,7 @@ const handleMatrixUpdate = (updatedMatrix, matrixId) => {
     );
 
     setMatrices([matrizPrincipal, ...matricesAlternativas]);
-    console.log(namesCriterios,namesAlternativas)
+
 
     const matrizPrincipalTitle = 'Matriz de comparación de criterios';
 
@@ -76,15 +73,13 @@ const handleMatrixUpdate = (updatedMatrix, matrixId) => {
         }
       })
     })
-    console.log(updatedMatrices);
     setMatrices(updatedMatrices)
-    console.log(matrices);
     setMostrarMatrixOperations(true);
   };
 
   return (
     <div>
-      <h1>Operaciones con Matrices</h1>
+      <h1>Método AHP</h1>
       <div>
         <label>Número de Criterios:</label>
         <select value={numCriterios} onChange={(e) => setNumCriterios(parseInt(e.target.value, 10))}>
@@ -119,9 +114,6 @@ const handleMatrixUpdate = (updatedMatrix, matrixId) => {
       </div>
       <div>
         <button onClick={handleCalcularClick}>Calcular</button>
-      </div>
-      <div>
-        <button onClick={()=>{console.log(matrices)}}>Ok</button>
       </div>
       {mostrarMatrixOperations && <MatrixOperations namesCriterios={namesCriterios} namesAlternativas={namesAlternativas} numCriterios={numCriterios} numAlternativas={numAlternativas} matrices={matrices} />} {/* Pasa las matrices a MatrixOperations */}
     </div>
