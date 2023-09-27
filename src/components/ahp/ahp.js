@@ -13,7 +13,8 @@ const AHP = () => {
   const [namesCriterios, setNamesCriterios] = useState([]);
   const [namesAlternativas, setNamesAlternativas] = useState([]);
   const [matricesTitles, setMatricesTitles] = useState('');
-  let updatedMatrices =[]
+  const[mostrarCalcular,setMostrarCalcular] = useState(false);
+  let updatedMatrices =[];
 
 const handleMatrixUpdate = (updatedMatrix, matrixId) => {
   // Obtén el índice de la matriz que se actualizó
@@ -63,6 +64,7 @@ const handleMatrixUpdate = (updatedMatrix, matrixId) => {
   
     // Establece el título de la matriz principal y los títulos de las matrices de valoraciones
     setMatricesTitles([matrizPrincipalTitle, ...criteriosTitles]);
+    setMostrarCalcular(true);
   };
 
   const handleCalcularClick = () => {
@@ -113,7 +115,7 @@ const handleMatrixUpdate = (updatedMatrix, matrixId) => {
         ))}
       </div>
       <div>
-        <button onClick={handleCalcularClick}>Calcular</button>
+        {mostrarCalcular && <button onClick={handleCalcularClick}>Calcular</button>}
       </div>
       {mostrarMatrixOperations && <MatrixOperations namesCriterios={namesCriterios} namesAlternativas={namesAlternativas} numCriterios={numCriterios} numAlternativas={numAlternativas} matrices={matrices} />} {/* Pasa las matrices a MatrixOperations */}
     </div>
