@@ -1,14 +1,14 @@
+import AHP from "../components/ahp/ahp";
 import Layout from "../components/layout/Layout";
-import Main from "../components/main/main";
 
-function Home() {
+function AHPpage() {
   return (
     <>
       <Layout>
-        <Main />
+        <AHP />
       </Layout>
     </>
   );
 }
 
-export default Home;
+export default AHPpage;
