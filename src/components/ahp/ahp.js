@@ -260,6 +260,14 @@ const AHP = () => {
               onClick={() => {
                 setMostrarCalcular(false);
                 unblockButtonsInputsSelects();
+                setNamesCriterios([]);
+                setNamesAlternativas([]);
+                setMatricesTitles("");
+                const inputs = document.querySelectorAll("input");
+                // Iterar sobre los elementos input y establecer sus valores a una cadena vacía
+                for (let i = 0; i < inputs.length; i++) {
+                  inputs[i].value = "";
+                }
               }}
             >
               Regresar
