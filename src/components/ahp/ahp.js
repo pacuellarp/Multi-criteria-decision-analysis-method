@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Matrix from "../matrix/matrix.js";
 import { parseFraction } from "../matrix/matrix";
-import MatrixOperations from "../matrixOperations/matrixOperations";
+import MatrixOperationsAHP from "../matrixOperationsAHP/matrixOperationsAHP";
 import CriterosAlternativas from "../criterosAlternativas/criterosAlternativas";
 
 const AHP = () => {
@@ -277,7 +277,7 @@ const AHP = () => {
       )}
       {mostrarMatrixOperations && (
         <React.Fragment>
-          <MatrixOperations
+          <MatrixOperationsAHP
             namesCriterios={namesCriterios}
             namesAlternativas={namesAlternativas}
             numCriterios={numCriterios}
