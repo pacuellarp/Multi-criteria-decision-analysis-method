@@ -1,8 +1,8 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 
 export const parseFraction = (fraction) => {
   if (!fraction) return 0;
-  const parts = fraction.split('/');
+  const parts = fraction.split("/");
   if (parts.length === 2) {
     const numerator = parseFloat(parts[0]);
     const denominator = parseFloat(parts[1]);
@@ -13,17 +13,15 @@ export const parseFraction = (fraction) => {
   return parseFloat(fraction);
 };
 
-
-const Matrix = ({ size, id, onUpdate, names }) => {
+const MatrixAHP = ({ size, id, onUpdate, names }) => {
   const [matrix, setMatrix] = useState(
     Array.from({ length: size }, (_, rowIndex) =>
       Array.from({ length: size }, (_, colIndex) =>
-        rowIndex === colIndex ? '1' : ''
+        rowIndex === colIndex ? "1" : ""
       )
     )
   );
 
-    
   useEffect(() => {
     // Set the ID of the table element
     const table = document.getElementById(`table-${id}`);
@@ -32,20 +30,18 @@ const Matrix = ({ size, id, onUpdate, names }) => {
     }
   }, [id]);
 
-
   const handleInputChange = (e, rowIndex, colIndex) => {
     const { value } = e.target;
 
     // Convert input value to decimal
     const decimalValue = parseFraction(value);
 
-    console.log(value)
-    console.log(decimalValue)
-    console.log(decimalValue.toString())
+    console.log(value);
+    console.log(decimalValue);
+    console.log(decimalValue.toString());
 
     const updatedMatrix = [...matrix];
     updatedMatrix[rowIndex][colIndex] = value;
-
 
     // Check if the entered value is not 0
     if (decimalValue !== 0) {
@@ -54,14 +50,13 @@ const Matrix = ({ size, id, onUpdate, names }) => {
       updatedMatrix[colIndex][rowIndex] = reciprocal.toString();
     } else {
       // If entered value is 0 or empty, set the opposite cell as empty
-      updatedMatrix[colIndex][rowIndex] = '';
+      updatedMatrix[colIndex][rowIndex] = "";
     }
 
     setMatrix(updatedMatrix);
     onUpdate(updatedMatrix, id);
     console.log(`Matrix with id ${id} updated:`, updatedMatrix);
   };
-
 
   return (
     <table>
@@ -97,4 +92,4 @@ const Matrix = ({ size, id, onUpdate, names }) => {
   );
 };
 
-export default Matrix;
+export default MatrixAHP;

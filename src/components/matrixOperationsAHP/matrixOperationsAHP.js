@@ -1,5 +1,5 @@
 import React from "react";
-import Results from "../../results/results";
+import ResultsAHP from "../../resultsAHP/resultsAHP";
 
 const MatrixOperationsAHP = ({
   matrices,
@@ -149,7 +149,7 @@ const MatrixOperationsAHP = ({
           </div>
         ))}
       </div>
-      <Results
+      <ResultsAHP
         resultados={resultados}
         datos={datos}
         namesAlternativas={namesAlternativas}

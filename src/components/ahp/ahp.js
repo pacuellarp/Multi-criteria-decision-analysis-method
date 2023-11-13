@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Matrix from "../matrix/matrix.js";
-import { parseFraction } from "../matrix/matrix";
+import MatrixAHP from "../matrixAHP/matrixAHP.js";
+import { parseFraction } from "../matrixAHP/matrixAHP";
 import MatrixOperationsAHP from "../matrixOperationsAHP/matrixOperationsAHP";
 import CriterosAlternativas from "../criterosAlternativas/criterosAlternativas";
 
@@ -240,7 +240,7 @@ const AHP = () => {
             {matrices.map((matrix, index) => (
               <div key={index}>
                 <h2>{matricesTitles[index]}</h2>
-                <Matrix
+                <MatrixAHP
                   names={index === 0 ? namesCriterios : namesAlternativas}
                   size={matrix.length}
                   id={index === 0 ? "comCri" : `comAlt${index}`}
