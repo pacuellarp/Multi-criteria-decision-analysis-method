@@ -1,4 +1,5 @@
 import React from "react";
+import ResultsTOPSIS from "../../resultsTOPSIS/resultsTOPSIS";
 
 const MatrixOperationsTOPSIS = ({
   updatedMatrix,
@@ -91,16 +92,103 @@ const MatrixOperationsTOPSIS = ({
     );
   }
 
+  const headers = ["", ...namesCriterios];
+
+  const tableRows = namesAlternativas.map((nombreAlternativa, index) => {
+    const rowData = [
+      { type: "header", content: nombreAlternativa },
+      ...updatedMatrix[1][index].map((valor) => ({
+        type: "data",
+        content: valor,
+      })),
+    ];
+
+    return rowData;
+  });
+
+  // Agregar fila para vectores ideales
+  const idealVectorRow = [
+    { type: "header", content: "Alternativa ideal" },
+    ...ideales.map((valor) => ({ type: "data", content: valor })),
+  ];
+
+  // Agregar fila para vectores anti-ideales
+  const antiIdealVectorRow = [
+    { type: "header", content: "Alternativa anti-ideal" },
+    ...antiIdeales.map((valor) => ({ type: "data", content: valor })),
+  ];
+
   return (
     <div>
-      <p>Hola</p>
-      <button
-        onClick={() => {
-          console.log(ratio);
-        }}
-      >
-        Yes
-      </button>
+      <h2>Matriz de decisión normalizada ponderada</h2>
+      <table border="1">
+        <thead>
+          <tr>
+            {headers.map((header, index) => (
+              <th key={index}>{header}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {tableRows.map((rowData, rowIndex) => (
+            <tr key={rowIndex}>
+              {rowData.map((cell, cellIndex) => (
+                <td key={`${rowIndex}-${cellIndex}`}>
+                  {cell.type === "header" ? (
+                    <strong>{cell.content}</strong>
+                  ) : (
+                    cell.content
+                  )}
+                </td>
+              ))}
+            </tr>
+          ))}
+          {/* Agregar filas para vectores ideales y anti-ideales */}
+          <tr>
+            {idealVectorRow.map((cell, cellIndex) => (
+              <td key={`ideal-${cellIndex}`}>
+                {cell.type === "header" ? (
+                  <strong>{cell.content}</strong>
+                ) : (
+                  cell.content
+                )}
+              </td>
+            ))}
+          </tr>
+          <tr>
+            {antiIdealVectorRow.map((cell, cellIndex) => (
+              <td key={`antiIdeal-${cellIndex}`}>
+                {cell.type === "header" ? (
+                  <strong>{cell.content}</strong>
+                ) : (
+                  cell.content
+                )}
+              </td>
+            ))}
+          </tr>
+        </tbody>
+      </table>
+      <table border="1">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Distancia a la alternativa ideal</th>
+            <th>Distancia a la alternativa anti-ideal</th>
+            <th>Proximidad relativa a la alternativa ideal</th>
+          </tr>
+        </thead>
+        <tbody>
+          {namesAlternativas.map((nombre, index) => (
+            <tr key={index}>
+              <td>{nombre}</td>
+              <td>{distanciaIdeal[index]}</td>
+              <td>{distanciaAntiIdeal[index]}</td>
+              <td>{ratio[index]}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <ResultsTOPSIS ratio={ratio} namesAlternativas={namesAlternativas} />
     </div>
   );
 };
