@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import MatrixTOPSIS from "../matrixTOPSIS/matrixTOPSIS";
+import { parseFraction } from "../matrixTOPSIS/matrixTOPSIS";
 import CriterosAlternativas from "../criterosAlternativas/criterosAlternativas";
 import OrderTable from "../tendencyTable/tendencyTable";
+import MatrixOperationsTOPSIS from "../matrixOperationsTOPSIS/matrixOperationsTOPSIS";
 
 const TOPSIS = () => {
   const [numCriterios, setNumCriterios] = useState(2);
@@ -13,6 +15,7 @@ const TOPSIS = () => {
   const [matricesTitles, setMatricesTitles] = useState("");
   const [mostrarCalcular, setMostrarCalcular] = useState(false);
   const [orderChoices, setOrderChoices] = useState([]);
+  const [updatedMatrix, setUpdatedMatrix] = useState([]);
 
   let updatedMatrices = [];
 
@@ -151,12 +154,21 @@ const TOPSIS = () => {
       );
       return; // No ejecutar más allá si hay un campo vacío
     }
+    updatedMatrices.forEach((matriz) => {
+      matriz.forEach((fila) => {
+        for (let i = 0; i < fila.length; i++) {
+          fila[i] = parseFraction(fila[i]);
+        }
+      });
+    });
 
+    setUpdatedMatrix(updatedMatrices);
+    setMostrarMatrixOperations(true);
+    blockButtonsInputsSelects();
     console.log(updatedMatrices);
-    console.log(orderChoices);
   };
 
-  const resetAHP = () => {
+  const resetTOPSIS = () => {
     setNumCriterios(2);
     setNumAlternativas(2);
     setMatrices([]);
@@ -283,6 +295,23 @@ const TOPSIS = () => {
           </div>
         </React.Fragment>
       )}
+      {mostrarMatrixOperations && (
+        <React.Fragment>
+          <MatrixOperationsTOPSIS
+            namesCriterios={namesCriterios}
+            namesAlternativas={namesAlternativas}
+            numCriterios={numCriterios}
+            numAlternativas={numAlternativas}
+            updatedMatrix={updatedMatrix}
+            orderChoices={orderChoices}
+          />
+          <div>
+            <button onClick={resetTOPSIS}>Reiniciar</button>
+            <button onClick={resetCalcular}>Regresar</button>
+          </div>
+        </React.Fragment>
+      )}{" "}
+      {/* Pasa las matrices a MatrixOperations */}
     </div>
   );
 };
