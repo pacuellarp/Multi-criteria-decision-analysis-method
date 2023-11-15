@@ -103,6 +103,16 @@ const TOPSIS = () => {
     return false; // No hay campos vacíos
   };
 
+  const ponderacionCheck = () => {
+    const sum = updatedMatrices[0][0].reduce((Suma, a) => Suma + a * 1, 0);
+
+    if (sum !== 1) {
+      return true; // Los pesos de los criterios no suman 100%
+    }
+
+    return false; // Sí suman 100%
+  };
+
   const handleEstablecerClick = () => {
     if (emptySpaces()) {
       // Puedes mostrar un mensaje de error, no ejecutar la función, o realizar alguna acción adecuada
@@ -154,6 +164,15 @@ const TOPSIS = () => {
       );
       return; // No ejecutar más allá si hay un campo vacío
     }
+
+    if (ponderacionCheck()) {
+      // Puedes mostrar un mensaje de error, no ejecutar la función, o realizar alguna acción adecuada
+      alert(
+        "Por favor, revisa las ponderaciones de los criterios, deben sumar 1."
+      );
+      return; // No ejecutar más allá si no suman 1
+    }
+
     updatedMatrices.forEach((matriz) => {
       matriz.forEach((fila) => {
         for (let i = 0; i < fila.length; i++) {
@@ -165,7 +184,7 @@ const TOPSIS = () => {
     setUpdatedMatrix(updatedMatrices);
     setMostrarMatrixOperations(true);
     blockButtonsInputsSelects();
-    console.log(updatedMatrices);
+    console.log(updatedMatrices[0][0]);
   };
 
   const resetTOPSIS = () => {

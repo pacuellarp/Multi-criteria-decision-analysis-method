@@ -168,6 +168,7 @@ const MatrixOperationsTOPSIS = ({
           </tr>
         </tbody>
       </table>
+      <h2>Medidas de distancia</h2>
       <table border="1">
         <thead>
           <tr>
