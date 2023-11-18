@@ -120,6 +120,9 @@ const TOPSIS = () => {
       return; // No ejecutar más allá si hay un campo vacío
     }
 
+    namesCriterios.splice(numCriterios);
+    namesAlternativas.splice(numAlternativas);
+
     const matrizPrincipal = Array.from({ length: numAlternativas }, () =>
       Array(numCriterios).fill("")
     );
