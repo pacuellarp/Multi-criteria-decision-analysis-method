@@ -1,3 +1,4 @@
+import React from "react";
 import AHP from "../components/ahp/ahp";
 import Layout from "../components/layout/Layout";
 
