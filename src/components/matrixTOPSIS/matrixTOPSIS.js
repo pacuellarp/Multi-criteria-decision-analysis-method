@@ -68,7 +68,7 @@ const MatrixTOPSIS = ({
   };
 
   return (
-    <table>
+    <table className="ml-auto mr-auto text-center" md="8">
       <tbody>
         {/* Agrega una fila adicional para los nombres de las columnas */}
         <tr>

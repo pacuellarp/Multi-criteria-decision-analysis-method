@@ -5,7 +5,7 @@ import React from "react";
 const OrderTable = ({ namesCriterios, orderChoices, handleOrderChange }) => {
   return (
     <div>
-      <table>
+      <table border="1" className="ml-auto mr-auto text-center" md="8">
         <thead>
           <tr>
             {namesCriterios.map((criterio, index) => (
@@ -29,6 +29,8 @@ const OrderTable = ({ namesCriterios, orderChoices, handleOrderChange }) => {
           </tr>
         </tbody>
       </table>
+      <br></br>
+      <br></br>
     </div>
   );
 };

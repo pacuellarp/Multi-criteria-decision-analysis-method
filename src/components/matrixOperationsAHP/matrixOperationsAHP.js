@@ -1,5 +1,6 @@
 import React from "react";
 import ResultsAHP from "../../resultsAHP/resultsAHP";
+import { Container } from "reactstrap";
 
 const MatrixOperationsAHP = ({
   matrices,
@@ -100,15 +101,15 @@ const MatrixOperationsAHP = ({
   const rowNames1 = [...namesAlternativas];
 
   return (
-    <div>
+    <div className="ml-auto mr-auto text-center" md="8">
       <h2>Matrices normalizadas y vectores de prioridad</h2>
-      <div>
+      <div className="ml-auto mr-auto text-center" md="8">
         {resultados.map((matrix, matrixIndex) => (
           <div key={matrixIndex}>
             {tableTitles && tableTitles[matrixIndex] && (
               <h2>{tableTitles[matrixIndex]}</h2>
             )}
-            <table>
+            <table border="1" className="ml-auto mr-auto text-center" md="8">
               <tbody>
                 {/* Fila de títulos de columnas */}
                 <tr>
@@ -149,12 +150,14 @@ const MatrixOperationsAHP = ({
           </div>
         ))}
       </div>
-      <ResultsAHP
-        resultados={resultados}
-        datos={datos}
-        namesAlternativas={namesAlternativas}
-        vectoresPrioridad={vectoresPrioridad}
-      />
+      <div className="ml-auto mr-auto text-center" md="8">
+        <ResultsAHP
+          resultados={resultados}
+          datos={datos}
+          namesAlternativas={namesAlternativas}
+          vectoresPrioridad={vectoresPrioridad}
+        />
+      </div>
     </div>
   );
 };

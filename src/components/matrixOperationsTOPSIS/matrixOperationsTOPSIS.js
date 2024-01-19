@@ -119,9 +119,10 @@ const MatrixOperationsTOPSIS = ({
   ];
 
   return (
-    <div>
+    <div className="ml-auto mr-auto text-center" md="8">
+      <br></br>
       <h2>Matriz de decisión normalizada ponderada</h2>
-      <table border="1">
+      <table border="1" className="ml-auto mr-auto text-center" md="8">
         <thead>
           <tr>
             {headers.map((header, index) => (
@@ -168,8 +169,10 @@ const MatrixOperationsTOPSIS = ({
           </tr>
         </tbody>
       </table>
+      <br></br>
+      <br></br>
       <h2>Medidas de distancia</h2>
-      <table border="1">
+      <table border="1" className="ml-auto mr-auto text-center" md="8">
         <thead>
           <tr>
             <th></th>
@@ -189,6 +192,9 @@ const MatrixOperationsTOPSIS = ({
           ))}
         </tbody>
       </table>
+      <br></br>
+      <br></br>
+      <br></br>
       <ResultsTOPSIS ratio={ratio} namesAlternativas={namesAlternativas} />
     </div>
   );

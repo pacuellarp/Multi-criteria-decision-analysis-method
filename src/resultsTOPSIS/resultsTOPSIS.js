@@ -24,7 +24,7 @@ const ResultsTOPSIS = ({ ratio, namesAlternativas }) => {
   }
 
   return (
-    <div>
+    <div className="ml-auto mr-auto text-center" style={{ width: "50%" }}>
       <h2>Resultados</h2>
       <table>
         <thead>

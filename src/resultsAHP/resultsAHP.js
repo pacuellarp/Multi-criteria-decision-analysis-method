@@ -60,7 +60,9 @@ const ResultsAHP = ({
   ];
 
   return (
-    <div>
+    <div className="ml-auto mr-auto text-center" style={{ width: "50%" }}>
+      <br></br>
+      <br></br>
       <h2>Resultados</h2>
       <table>
         <thead>

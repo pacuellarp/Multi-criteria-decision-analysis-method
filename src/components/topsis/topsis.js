@@ -130,7 +130,7 @@ const TOPSIS = () => {
     setMatrices([matrizPrincipal]);
 
     const matrizPrincipalTitle =
-      "Matriz de elavuación de alternativas con respecto a los criterios";
+      "Matriz de evaluación de alternativas con respecto a los criterios";
 
     // Establece el título de la matriz principal
 
@@ -223,8 +223,7 @@ const TOPSIS = () => {
 
   return (
     <div>
-      <h1>Método TOPSIS</h1>
-      <div>
+      <div className="ml-auto mr-auto text-center" md="8">
         <label>Número de Criterios:</label>
         <select
           value={numCriterios}
@@ -237,7 +236,7 @@ const TOPSIS = () => {
           ))}
         </select>
       </div>
-      <div>
+      <div className="ml-auto mr-auto text-center" md="8">
         <label>Número de Alternativas:</label>
         <select
           value={numAlternativas}
@@ -256,12 +255,19 @@ const TOPSIS = () => {
           setNamesAlternativas={setNamesAlternativas}
         />
         <div>
-          <button onClick={handleEstablecerClick}>Establecer</button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            onClick={handleEstablecerClick}
+          >
+            Establecer
+          </button>
         </div>
       </div>
       {mostrarCalcular && (
         <React.Fragment>
-          <div>
+          <div className="ml-auto mr-auto text-center" md="8">
+            <br></br>
             <h2>{["Orden de los criterios"]}</h2>
             <OrderTable
               namesCriterios={namesCriterios}
@@ -296,9 +302,17 @@ const TOPSIS = () => {
               </div>
             ))}
           </div>
-          <div>
-            <button onClick={handleCalcularClick}>Calcular</button>
+          <div className="ml-auto mr-auto text-center" md="8">
             <button
+              type="button"
+              class="btn btn-primary"
+              onClick={handleCalcularClick}
+            >
+              Calcular
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
               onClick={() => {
                 setMostrarCalcular(false);
                 unblockButtonsInputsSelects();
@@ -317,23 +331,37 @@ const TOPSIS = () => {
           </div>
         </React.Fragment>
       )}
-      {mostrarMatrixOperations && (
-        <React.Fragment>
-          <MatrixOperationsTOPSIS
-            namesCriterios={namesCriterios}
-            namesAlternativas={namesAlternativas}
-            numCriterios={numCriterios}
-            numAlternativas={numAlternativas}
-            updatedMatrix={updatedMatrix}
-            orderChoices={orderChoices}
-          />
-          <div>
-            <button onClick={resetTOPSIS}>Reiniciar</button>
-            <button onClick={resetCalcular}>Regresar</button>
-          </div>
-        </React.Fragment>
-      )}{" "}
-      {/* Pasa las matrices a MatrixOperations */}
+      <div className="ml-auto mr-auto text-center" md="8">
+        {mostrarMatrixOperations && (
+          <React.Fragment>
+            <MatrixOperationsTOPSIS
+              namesCriterios={namesCriterios}
+              namesAlternativas={namesAlternativas}
+              numCriterios={numCriterios}
+              numAlternativas={numAlternativas}
+              updatedMatrix={updatedMatrix}
+              orderChoices={orderChoices}
+            />
+            <div>
+              <button
+                type="button"
+                class="btn btn-primary"
+                onClick={resetTOPSIS}
+              >
+                Reiniciar
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onClick={resetCalcular}
+              >
+                Regresar
+              </button>
+            </div>
+          </React.Fragment>
+        )}{" "}
+        {/* Pasa las matrices a MatrixOperations */}
+      </div>
     </div>
   );
 };

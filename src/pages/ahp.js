@@ -1,13 +1,13 @@
 import React from "react";
 import AHP from "../components/ahp/ahp";
-import Layout from "../components/layout/Layout";
+import Layout2 from "../components/layout/Layout2";
 
 function AHPpage() {
   return (
     <>
-      <Layout>
+      <Layout2>
         <AHP />
-      </Layout>
+      </Layout2>
     </>
   );
 }

@@ -8,9 +8,13 @@
     "@testing-library/user-event": "^13.5.0",
     "chart.js": "^4.4.0",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.9.2",
+    "react-bootstrap-switch": "^15.5.3",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.16.0",
     "react-scripts": "5.0.1",
+    "reactstrap": "^8.10.0",
+    "sass": "^1.62.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -36,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "lite-server": "^2.6.1"
   }
 }

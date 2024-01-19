@@ -59,8 +59,8 @@ const MatrixAHP = ({ size, id, onUpdate, names }) => {
   };
 
   return (
-    <table>
-      <tbody>
+    <table className="ml-auto mr-auto text-center" md="8">
+      <tbody className="ml-auto mr-auto text-center" md="8">
         {/* Agrega una fila adicional para los nombres de las columnas */}
         <tr>
           <td></td> {/* Celda vacía en la esquina superior izquierda */}

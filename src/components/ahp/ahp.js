@@ -197,10 +197,12 @@ const AHP = () => {
   };
 
   return (
-    <div>
-      <h1>Método AHP</h1>
+    <div className="ml-auto mr-auto text-center" md="8">
+      <br></br>
+      <br></br>
+      <br></br>
       <div>
-        <label>Número de Criterios:</label>
+        <label>Número de Criterios: </label>
         <select
           value={numCriterios}
           onChange={(e) => setNumCriterios(parseInt(e.target.value, 10))}
@@ -213,7 +215,7 @@ const AHP = () => {
         </select>
       </div>
       <div>
-        <label>Número de Alternativas:</label>
+        <label>Número de Alternativas: </label>
         <select
           value={numAlternativas}
           onChange={(e) => setNumAlternativas(parseInt(e.target.value, 10))}
@@ -232,11 +234,18 @@ const AHP = () => {
         setNamesAlternativas={setNamesAlternativas}
       />
       <div>
-        <button onClick={handleEstablecerClick}>Establecer</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          onClick={handleEstablecerClick}
+        >
+          Establecer
+        </button>
       </div>
+      <br></br>
       {mostrarCalcular && (
         <React.Fragment>
-          <div>
+          <div className="ml-auto mr-auto text-center" md="8">
             {matrices.map((matrix, index) => (
               <div key={index}>
                 <h2>{matricesTitles[index]}</h2>
@@ -255,8 +264,16 @@ const AHP = () => {
             ))}
           </div>
           <div>
-            <button onClick={handleCalcularClick}>Calcular</button>
             <button
+              type="button"
+              class="btn btn-primary"
+              onClick={handleCalcularClick}
+            >
+              Calcular
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
               onClick={() => {
                 setMostrarCalcular(false);
                 unblockButtonsInputsSelects();
@@ -285,8 +302,16 @@ const AHP = () => {
             matrices={matrices}
           />
           <div>
-            <button onClick={resetAHP}>Reiniciar</button>
-            <button onClick={resetCalcular}>Regresar</button>
+            <button type="button" class="btn btn-primary" onClick={resetAHP}>
+              Reiniciar
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              onClick={resetCalcular}
+            >
+              Regresar
+            </button>
           </div>
         </React.Fragment>
       )}{" "}

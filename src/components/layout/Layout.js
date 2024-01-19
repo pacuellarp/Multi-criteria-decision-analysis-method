@@ -1,12 +1,14 @@
-import Header from "../header/header";
-import Footer from "../footer/footer";
+import Header from "../Headers/IndexHeader.js";
+import DefaultFooter from "../Footers/DefaultFooter.js";
+import Navbars from "../Navbars/IndexNavbar";
 
 const Layout = ({ children }) => {
   return (
     <div>
+      <Navbars />
       <Header />
       <main>{children}</main>
-      <Footer />
+      <DefaultFooter />
     </div>
   );
 };
