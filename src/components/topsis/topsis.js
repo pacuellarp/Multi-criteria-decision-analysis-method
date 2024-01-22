@@ -113,6 +113,15 @@ const TOPSIS = () => {
     return false; // Sí suman 100%
   };
 
+  const ponderacionCheckEachOne = () => {
+    for (const value of updatedMatrices[0][0]) {
+      if (value * 1 < 0 || value * 1 > 1) {
+        return true;
+      }
+    }
+    return false;
+  };
+
   const handleEstablecerClick = () => {
     if (emptySpaces()) {
       // Puedes mostrar un mensaje de error, no ejecutar la función, o realizar alguna acción adecuada
@@ -166,6 +175,14 @@ const TOPSIS = () => {
         "Por favor, revisa tus valores ingresados, el 0 no es un valor válido."
       );
       return; // No ejecutar más allá si hay un campo vacío
+    }
+
+    if (ponderacionCheckEachOne()) {
+      // Puedes mostrar un mensaje de error, no ejecutar la función, o realizar alguna acción adecuada
+      alert(
+        "Por favor, revisa las ponderaciones de los criterios, estas deben estar entre 0 y 1."
+      );
+      return; // No ejecutar más allá si no suman 1
     }
 
     if (ponderacionCheck()) {
