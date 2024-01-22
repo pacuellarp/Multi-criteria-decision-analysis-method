@@ -15,6 +15,14 @@ function IndexHeader() {
         filter-color="blue"
         style={{ height: "10px" }}
       >
+        <div
+          className="page-header-image"
+          style={{
+            backgroundImage:
+              "url(" + require("../../assets/img/guatape.jpg") + ")",
+          }}
+          ref={pageHeader}
+        ></div>
         <Container>
           <div className="content-center brand">
             <h1 className="h1-seo">Método AHP</h1>
