@@ -6,22 +6,30 @@ import {
   Navigate,
 } from "react-router-dom";
 //import "bootstrap/dist/css/bootstrap.min.css";
+import {
+  Container,
+  ButtonGroup,
+  ToggleButton,
+  Col,
+  Row,
+} from "react-bootstrap";
 
 import AHP from "../ahp/ahp";
 
 import TOPSIS from "../topsis/topsis";
-import { Col, Container, Row } from "reactstrap";
 
 const Main = () => {
   const [opcionSeleccionada, setOpcionSeleccionada] = useState(null);
+  const [metodoSeleccionado, setMetodoSeleccionado] = useState(null);
+  const [opcionesYaTomadas, setOpcionesYaTomadas] = useState(false);
 
   const handleOpcionSeleccionada = (opcion) => {
     setOpcionSeleccionada(opcion);
   };
 
-  const esquemaAprovisionamiento = opcionSeleccionada === "Sí";
-
-  const opciones = ["AHP", "TOPSIS"];
+  const handleOpcionesYaTomada = () => {
+    setOpcionesYaTomadas(true);
+  };
 
   return (
     <div className="container">
@@ -46,56 +54,31 @@ const Main = () => {
       </Container>
 
       <Container className="ml-auto mr-auto text-center" md="8">
-        <div class="btn-group" role="group" aria-label="Opciones">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            onClick={() => handleOpcionSeleccionada("Sí")}
+        <ButtonGroup toggle className="mb-2">
+          <ToggleButton
+            type="radio"
+            variant="info"
+            name="radio"
+            value="Sí"
+            checked={opcionSeleccionada === "Sí"}
+            onChange={() => handleOpcionSeleccionada("Sí")}
+            className="no-focus-outline"
           >
             Sí
-          </button>
-          <label>
-            <input
-              type="radio"
-              value="Sí"
-              checked={opcionSeleccionada === "Sí"}
-              onChange={() => handleOpcionSeleccionada("Sí")}
-              style={{ display: "none" }}
-            />
-          </label>
+          </ToggleButton>
 
-          <button
-            type="button"
-            class="btn btn-primary"
-            onClick={() => handleOpcionSeleccionada("No")}
+          <ToggleButton
+            type="radio"
+            variant="primary"
+            name="radio"
+            value="No"
+            checked={opcionSeleccionada === "No"}
+            onChange={() => handleOpcionSeleccionada("No")}
+            className="no-focus-outline"
           >
             No
-          </button>
-          <label>
-            <input
-              type="radio"
-              value="No"
-              checked={opcionSeleccionada === "No"}
-              onChange={() => handleOpcionSeleccionada("No")}
-              style={{ display: "none" }}
-            />
-          </label>
-
-          {opcionSeleccionada === "Sí" && <p>{opciones[0]}</p>}
-          {opcionSeleccionada === "No" && <p>{opciones[1]}</p>}
-          {console.log(opcionSeleccionada)}
-        </div>
-
-        <Routes>
-          <Route path="/ahp" component={AHP} />
-          <Route path="/topsis" component={TOPSIS} />
-          {opcionSeleccionada === "Sí" && (
-            <Route path="/" element={<Navigate to="/ahp" />} />
-          )}
-          {opcionSeleccionada === "No" && (
-            <Route path="/" element={<Navigate to="/topsis" />} />
-          )}
-        </Routes>
+          </ToggleButton>
+        </ButtonGroup>
       </Container>
       <br />
       <br />

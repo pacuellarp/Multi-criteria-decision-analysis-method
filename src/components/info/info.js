@@ -108,11 +108,12 @@ const InfoComponent = () => {
                 </h2>
                 <p>
                   El método TOPSIS (Technique for Order of Preference by
-                  Similarity to Ideal Solution, evalúa las alternativas respecto
-                  a tu solución ideal) es una técnica que defiende la similitud
-                  de cada alternativa respecto a la solución ideal. Tan solo
-                  requiere un número mínimo de entradas por parte del centro
-                  decisor para proporcionar el ranking final de preferencia.
+                  Similarity to Ideal Solution), evalúa las alternativas
+                  respecto a tu solución ideal, es una técnica que defiende la
+                  similitud de cada alternativa respecto a la solución ideal.
+                  Tan solo requiere un número mínimo de entradas por parte del
+                  centro decisor para proporcionar el ranking final de
+                  preferencia.
                 </p>
                 <p>
                   La idea fundamental del método describe que la mejor solución
