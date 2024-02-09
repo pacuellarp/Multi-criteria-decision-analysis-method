@@ -5,7 +5,7 @@ import React from "react";
 import { Container } from "reactstrap";
 // core components
 
-function IndexHeader() {
+function IndexHeader({ title, subtitle }) {
   let pageHeader = React.createRef();
 
   return (
@@ -25,14 +25,11 @@ function IndexHeader() {
         ></div>
         <Container>
           <div className="content-center brand">
-            <h1 className="h1-seo">Método AHP</h1>
+            <h1 className="h1-seo">{`${title}`}</h1>
             <br></br>
             <br></br>
             <br></br>
-            <h3>
-              Analytic Hierarchy Process, selecciona tus alternativas en función
-              de la serie de criterios o variables pertinentes
-            </h3>
+            <h3>{`${subtitle}`}</h3>
           </div>
         </Container>
       </div>

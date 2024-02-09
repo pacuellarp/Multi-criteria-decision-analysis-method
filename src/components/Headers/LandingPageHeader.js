@@ -5,7 +5,7 @@ import { Button, Container } from "reactstrap";
 
 // core components
 
-function LandingPageHeader() {
+function LandingPageHeader({ title }) {
   let pageHeader = React.createRef();
 
   React.useEffect(() => {
@@ -23,43 +23,18 @@ function LandingPageHeader() {
   });
   return (
     <>
-      <div className="page-header page-header-small">
+      <div className="page-header page-header-small mb-5">
         <div
           className="page-header-image"
           style={{
-            backgroundImage: "url(" + require("../../assets/img/guatape.jpg") + ")",
+            backgroundImage:
+              "url(" + require("../../assets/img/guatape.jpg") + ")",
           }}
           ref={pageHeader}
         ></div>
         <div className="content-center">
           <Container>
-            <h1 className="title">TOPSIS METHOD</h1>
-            <div className="text-center">
-              <Button
-                className="btn-icon btn-round"
-                color="info"
-                href="#pablo"
-                onClick={(e) => e.preventDefault()}
-              >
-                <i className="fab fa-facebook-square"></i>
-              </Button>
-              <Button
-                className="btn-icon btn-round"
-                color="info"
-                href="#pablo"
-                onClick={(e) => e.preventDefault()}
-              >
-                <i className="fab fa-twitter"></i>
-              </Button>
-              <Button
-                className="btn-icon btn-round"
-                color="info"
-                href="#pablo"
-                onClick={(e) => e.preventDefault()}
-              >
-                <i className="fab fa-google-plus"></i>
-              </Button>
-            </div>
+            <h1 className="title">{title}</h1>
           </Container>
         </div>
       </div>

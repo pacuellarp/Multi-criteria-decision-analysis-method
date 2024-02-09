@@ -1,5 +1,5 @@
 import React from "react";
-import ResultsAHP from "../../resultsAHP/resultsAHP";
+import ResultsAHP from "../resultsAHP/resultsAHP";
 import { Container } from "reactstrap";
 
 const MatrixOperationsAHP = ({

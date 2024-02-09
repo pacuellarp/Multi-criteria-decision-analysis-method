@@ -1,5 +1,5 @@
 import React from "react";
-import ResultsTOPSIS from "../../resultsTOPSIS/resultsTOPSIS";
+import ResultsTOPSIS from "../resultsTOPSIS/resultsTOPSIS";
 
 const MatrixOperationsTOPSIS = ({
   updatedMatrix,

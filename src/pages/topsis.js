@@ -1,5 +1,5 @@
 import TOPSIS from "../components/topsis/topsis";
-import Layout from "../components/layout/Layout";
+import Layout2 from "../layout/Layout2";
 
 import React from "react";
 
@@ -36,14 +36,14 @@ function TOPSISpage() {
   }, []);
   return (
     <>
-      <ExamplesNavbar />
-      <div className="wrapper">
-        <LandingPageHeader />
-        <div className="section section-about-us">
-          <TOPSIS />
-        </div>
-        <DefaultFooter />
-      </div>
+      <Layout2
+        title={"Método TOPSIS"}
+        subtitle={
+          "Technique for Order of Preference by Similarity to Ideal Solution, evalúa las alternativas respecto a tu solución ideal"
+        }
+      >
+        <TOPSIS />
+      </Layout2>
     </>
   );
 }

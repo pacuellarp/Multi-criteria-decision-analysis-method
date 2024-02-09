@@ -239,8 +239,8 @@ const TOPSIS = () => {
   };
 
   return (
-    <div>
-      <div className="ml-auto mr-auto text-center" md="8">
+    <div className="ml-auto mr-auto text-center my-5" md="8">
+      <div>
         <label>Número de Criterios:</label>
         <select
           value={numCriterios}

@@ -197,10 +197,7 @@ const AHP = () => {
   };
 
   return (
-    <div className="ml-auto mr-auto text-center" md="8">
-      <br></br>
-      <br></br>
-      <br></br>
+    <div className="ml-auto mr-auto text-center my-5" md="8">
       <div>
         <label>Número de Criterios: </label>
         <select
