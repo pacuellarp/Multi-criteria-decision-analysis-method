@@ -26,7 +26,7 @@ const ResultsTOPSIS = ({ ratio, namesAlternativas }) => {
   return (
     <div className="ml-auto mr-auto text-center" style={{ width: "50%" }}>
       <h2>Resultados</h2>
-      <table>
+      <table border="1" className="ml-auto mr-auto text-center" md="8">
         <thead>
           <tr>
             <th>Ranking</th>
@@ -36,7 +36,7 @@ const ResultsTOPSIS = ({ ratio, namesAlternativas }) => {
           {namesAlternativas.map((alternativa, index) => (
             <tr key={index}>
               <td>{alternativa}</td>
-              <td>{ranking[index]}</td>
+              <td>{ranking[index].toFixed(4)}</td>
             </tr>
           ))}
         </tbody>

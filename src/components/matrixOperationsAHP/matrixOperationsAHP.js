@@ -133,7 +133,7 @@ const MatrixOperationsAHP = ({
                         : rowNames1[rowIndex]}
                     </td>
                     {row.map((cell, colIndex) => (
-                      <td key={colIndex}>{cell}</td>
+                      <td key={colIndex}>{cell.toFixed(4)}</td>
                     ))}
                   </tr>
                 ))}

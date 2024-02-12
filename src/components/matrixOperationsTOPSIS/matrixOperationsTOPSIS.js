@@ -138,7 +138,7 @@ const MatrixOperationsTOPSIS = ({
                   {cell.type === "header" ? (
                     <strong>{cell.content}</strong>
                   ) : (
-                    cell.content
+                    cell.content.toFixed(4)
                   )}
                 </td>
               ))}
@@ -151,7 +151,7 @@ const MatrixOperationsTOPSIS = ({
                 {cell.type === "header" ? (
                   <strong>{cell.content}</strong>
                 ) : (
-                  cell.content
+                  cell.content.toFixed(4)
                 )}
               </td>
             ))}
@@ -162,7 +162,7 @@ const MatrixOperationsTOPSIS = ({
                 {cell.type === "header" ? (
                   <strong>{cell.content}</strong>
                 ) : (
-                  cell.content
+                  cell.content.toFixed(4)
                 )}
               </td>
             ))}
@@ -185,9 +185,9 @@ const MatrixOperationsTOPSIS = ({
           {namesAlternativas.map((nombre, index) => (
             <tr key={index}>
               <td>{nombre}</td>
-              <td>{distanciaIdeal[index]}</td>
-              <td>{distanciaAntiIdeal[index]}</td>
-              <td>{ratio[index]}</td>
+              <td>{distanciaIdeal[index].toFixed(4)}</td>
+              <td>{distanciaAntiIdeal[index].toFixed(4)}</td>
+              <td>{ratio[index].toFixed(4)}</td>
             </tr>
           ))}
         </tbody>

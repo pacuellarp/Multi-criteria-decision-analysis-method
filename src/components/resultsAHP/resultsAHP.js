@@ -64,7 +64,7 @@ const ResultsAHP = ({
       <br></br>
       <br></br>
       <h2>Resultados</h2>
-      <table>
+      <table border="1" className="ml-auto mr-auto text-center" md="8">
         <thead>
           <tr>
             <th>Ranking</th>
@@ -74,7 +74,7 @@ const ResultsAHP = ({
           {namesAlternativas.map((alternativa, index) => (
             <tr key={index}>
               <td>{alternativa}</td>
-              <td>{ranking[index]}</td>
+              <td>{ranking[index].toFixed(4)}</td>
             </tr>
           ))}
           <tr>
@@ -97,7 +97,13 @@ const ResultsAHP = ({
           {medidaConsistencia.map((medida, index) => (
             <tr key={index}>
               <td>{medida}</td>
-              <td>{index === 0 ? ci : index === 1 ? ia : cr}</td>
+              <td>
+                {index === 0
+                  ? ci.toFixed(4)
+                  : index === 1
+                  ? ia.toFixed(4)
+                  : cr.toFixed(4)}
+              </td>
             </tr>
           ))}
         </tbody>
