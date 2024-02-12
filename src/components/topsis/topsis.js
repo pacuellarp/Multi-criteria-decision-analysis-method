@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MatrixTOPSIS from "../matrixTOPSIS/matrixTOPSIS";
 import { parseFraction } from "../matrixTOPSIS/matrixTOPSIS";
 import CriterosAlternativas from "../criterosAlternativas/criterosAlternativas";
 import OrderTable from "../tendencyTable/tendencyTable";
 import MatrixOperationsTOPSIS from "../matrixOperationsTOPSIS/matrixOperationsTOPSIS";
 
-const TOPSIS = () => {
+const TOPSIS = ({ state }) => {
   const [numCriterios, setNumCriterios] = useState(2);
   const [numAlternativas, setNumAlternativas] = useState(2);
   const [matrices, setMatrices] = useState([]);
@@ -226,6 +226,24 @@ const TOPSIS = () => {
     }
   };
 
+  const criteriaAutocompletion = (criteria) => {
+    for (const criterion of criteria) {
+      const cri = document.getElementById(
+        `cri${criteria.indexOf(criterion) + 1}`
+      );
+      cri.value = criterion;
+    }
+  };
+
+  useEffect(() => {
+    if (state) {
+      setNumCriterios(state.criterio.length);
+      setTimeout(() => {
+        criteriaAutocompletion(state.criterio);
+      }, "250");
+    }
+  }, [state]);
+
   const resetCalcular = () => {
     unblockButtonsInputsSelects();
     setMatrices([]);
@@ -246,7 +264,7 @@ const TOPSIS = () => {
           value={numCriterios}
           onChange={(e) => setNumCriterios(parseInt(e.target.value, 10))}
         >
-          {[2, 3, 4, 5].map((option) => (
+          {[2, 3, 4, 5, 6, 7, 8, 9, 10].map((option) => (
             <option key={option} value={option}>
               {option}
             </option>
@@ -259,7 +277,7 @@ const TOPSIS = () => {
           value={numAlternativas}
           onChange={(e) => setNumAlternativas(parseInt(e.target.value, 10))}
         >
-          {[2, 3, 4, 5].map((option) => (
+          {[2, 3, 4, 5, 6, 7, 8, 9, 10].map((option) => (
             <option key={option} value={option}>
               {option}
             </option>

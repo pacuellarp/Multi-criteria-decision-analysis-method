@@ -2,6 +2,7 @@ import TOPSIS from "../components/topsis/topsis";
 import Layout2 from "../layout/Layout2";
 
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 // reactstrap components
 import {
@@ -34,6 +35,10 @@ function TOPSISpage() {
       document.body.classList.remove("sidebar-collapse");
     };
   }, []);
+
+  let { state } = useLocation();
+  console.log(state);
+
   return (
     <>
       <Layout2
@@ -42,7 +47,7 @@ function TOPSISpage() {
           "Technique for Order of Preference by Similarity to Ideal Solution, evalúa las alternativas respecto a tu solución ideal"
         }
       >
-        <TOPSIS />
+        <TOPSIS state={state} />
       </Layout2>
     </>
   );

@@ -50,13 +50,25 @@ const CriterosAlternativas = ({
     const alternativaId = generateUniqueId(input[1], i);
     alternativasId.push(alternativaId);
     alternativas.push(
-      <input
-        key={alternativaId} // Asegura que cada input tenga una clave única
-        type="text"
-        id={alternativaId}
-        onChange={(e) => handleInputChange(e, i)}
-        placeholder={`Alternativa ${i + 1}`}
-      />
+      <div className="d-flex justify-content-center">
+        <input
+          key={alternativaId} // Asegura que cada input tenga una clave única
+          type="text"
+          id={alternativaId}
+          onChange={(e) => handleInputChange(e, i)}
+          placeholder={`Alternativa ${i + 1}`}
+          list="alternatives"
+          name="myAlternatives"
+        />
+        <datalist id="alternatives">
+          <option value="Abastos de agua"></option>
+          <option value="Planta convencional"></option>
+          <option value="Planta compacta"></option>
+          <option value="Puntos de suministro"></option>
+          <option value="Captación de aguas lluvia"></option>
+          <option value="Soluciones individuales"></option>
+        </datalist>
+      </div>
     );
   }
 
@@ -65,7 +77,7 @@ const CriterosAlternativas = ({
       <p>A continuación, introduce tus criterios:</p>
       <p>{criterios}</p>
       <p>Introduce tus alternativas:</p>
-      <p>{alternativas}</p>
+      <p className="d-flex flex-row justify-content-center">{alternativas}</p>
     </div>
   );
 };

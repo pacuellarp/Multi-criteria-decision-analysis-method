@@ -1,0 +1,29 @@
+.btn {
+    margin: 5px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.btn.active {
+    border-color: black;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.list-group li:before {
+    content: "•";
+    margin-right: 10px;
+}
+
+.list-group li{
+    border: 0 none;
+}
+  
+  
