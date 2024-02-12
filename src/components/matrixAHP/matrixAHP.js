@@ -36,10 +36,6 @@ const MatrixAHP = ({ size, id, onUpdate, names }) => {
     // Convert input value to decimal
     const decimalValue = parseFraction(value);
 
-    console.log(value);
-    console.log(decimalValue);
-    console.log(decimalValue.toString());
-
     const updatedMatrix = [...matrix];
     updatedMatrix[rowIndex][colIndex] = value;
 
@@ -55,7 +51,6 @@ const MatrixAHP = ({ size, id, onUpdate, names }) => {
 
     setMatrix(updatedMatrix);
     onUpdate(updatedMatrix, id);
-    console.log(`Matrix with id ${id} updated:`, updatedMatrix);
   };
 
   return (

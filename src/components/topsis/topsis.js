@@ -4,6 +4,7 @@ import { parseFraction } from "../matrixTOPSIS/matrixTOPSIS";
 import CriterosAlternativas from "../criterosAlternativas/criterosAlternativas";
 import OrderTable from "../tendencyTable/tendencyTable";
 import MatrixOperationsTOPSIS from "../matrixOperationsTOPSIS/matrixOperationsTOPSIS";
+import { Link } from "react-router-dom";
 
 const TOPSIS = ({ state }) => {
   const [numCriterios, setNumCriterios] = useState(2);
@@ -204,12 +205,18 @@ const TOPSIS = ({ state }) => {
     setUpdatedMatrix(updatedMatrices);
     setMostrarMatrixOperations(true);
     blockButtonsInputsSelects();
-    console.log(updatedMatrices[0][0]);
   };
 
   const resetTOPSIS = () => {
-    setNumCriterios(2);
-    setNumAlternativas(2);
+    if (state) {
+      setNumCriterios(state.criterio.length);
+      setTimeout(() => {
+        criteriaAutocompletion(state.criterio);
+      }, "250");
+    } else {
+      setNumCriterios(2);
+      setNumAlternativas(2);
+    }
     setMatrices([]);
     setMostrarMatrixOperations(false);
     setNamesCriterios([]);
@@ -258,6 +265,18 @@ const TOPSIS = ({ state }) => {
 
   return (
     <div className="ml-auto mr-auto text-center my-5" md="8">
+      <div className="d-flex flex-row justify-content-center align-items-stretch">
+        <p className="mr-3">¿Deseas repasar rápidamente el procedimiento?</p>
+        <Link
+          to="/info#topsis"
+          target="_blank"
+          hash="#topsis"
+          style={{ color: "blue", fontWeight: "bold" }}
+        >
+          Haz click aquí
+        </Link>
+        <p>.</p>
+      </div>
       <div>
         <label>Número de Criterios:</label>
         <select
@@ -351,13 +370,20 @@ const TOPSIS = ({ state }) => {
               onClick={() => {
                 setMostrarCalcular(false);
                 unblockButtonsInputsSelects();
-                setNamesCriterios([]);
-                setNamesAlternativas([]);
-                setMatricesTitles("");
-                const inputs = document.querySelectorAll("input");
-                // Iterar sobre los elementos input y establecer sus valores a una cadena vacía
-                for (let i = 0; i < inputs.length; i++) {
-                  inputs[i].value = "";
+                if (state) {
+                  setNumCriterios(state.criterio.length);
+                  setTimeout(() => {
+                    criteriaAutocompletion(state.criterio);
+                  }, "250");
+                } else {
+                  setNamesCriterios([]);
+                  setNamesAlternativas([]);
+                  setMatricesTitles("");
+                  const inputs = document.querySelectorAll("input");
+                  // Iterar sobre los elementos input y establecer sus valores a una cadena vacía
+                  for (let i = 0; i < inputs.length; i++) {
+                    inputs[i].value = "";
+                  }
                 }
               }}
             >

@@ -25,13 +25,14 @@ const InfoComponent = () => {
                   sus <b>criterios</b> y <b>alternativas</b> independientemente
                   del método a utilizar, aunque los procedimientos de cada
                   método son distintos. <br />
-                  <br />A continuación, se describe su uso en este proyecto.
+                  <br />
+                </p>
+                <p id="ahp">
+                  A continuación, se describe su uso en este proyecto.
                 </p>
               </article>
               <article className="mt-5">
-                <h2 className="text-center" id="ahp">
-                  Método AHP
-                </h2>
+                <h2 className="text-center">Método AHP</h2>
                 <p>
                   El método AHP (Analytic Hierarchy Procces) propone una
                   estructura jerárquica de 3 niveles para la resolución de un
@@ -94,7 +95,7 @@ const InfoComponent = () => {
                   el peso específico que tiene cada criterio o alternativa con
                   respecto a las demás.
                 </p>
-                <p>
+                <p id="topsis">
                   Y como último paso, con el fin de poder evaluar
                   consecuentemente todas las alternativas deberemos crear el
                   ranking de prioridad. Será el resultado de combinar la

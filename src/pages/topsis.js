@@ -1,7 +1,7 @@
 import TOPSIS from "../components/topsis/topsis";
 import Layout2 from "../layout/Layout2";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 // reactstrap components
@@ -37,7 +37,10 @@ function TOPSISpage() {
   }, []);
 
   let { state } = useLocation();
-  console.log(state);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>

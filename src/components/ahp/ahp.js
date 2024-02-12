@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MatrixAHP from "../matrixAHP/matrixAHP.js";
 import { parseFraction } from "../matrixAHP/matrixAHP";
 import MatrixOperationsAHP from "../matrixOperationsAHP/matrixOperationsAHP";
 import CriterosAlternativas from "../criterosAlternativas/criterosAlternativas";
+import { Link } from "react-router-dom";
 
-const AHP = () => {
+const AHP = ({ state }) => {
   const [numCriterios, setNumCriterios] = useState(2);
   const [numAlternativas, setNumAlternativas] = useState(2);
   const [matrices, setMatrices] = useState([]);
@@ -166,8 +167,15 @@ const AHP = () => {
   };
 
   const resetAHP = () => {
-    setNumCriterios(2);
-    setNumAlternativas(2);
+    if (state) {
+      setNumCriterios(state.criterio.length);
+      setTimeout(() => {
+        criteriaAutocompletion(state.criterio);
+      }, "250");
+    } else {
+      setNumCriterios(2);
+      setNumAlternativas(2);
+    }
     setMatrices([]);
     setMostrarMatrixOperations(false);
     setNamesCriterios([]);
@@ -184,6 +192,24 @@ const AHP = () => {
     }
   };
 
+  const criteriaAutocompletion = (criteria) => {
+    for (const criterion of criteria) {
+      const cri = document.getElementById(
+        `cri${criteria.indexOf(criterion) + 1}`
+      );
+      cri.value = criterion;
+    }
+  };
+
+  useEffect(() => {
+    if (state) {
+      setNumCriterios(state.criterio.length);
+      setTimeout(() => {
+        criteriaAutocompletion(state.criterio);
+      }, "250");
+    }
+  }, [state]);
+
   const resetCalcular = () => {
     unblockButtonsInputsSelects();
     setMatrices([]);
@@ -198,6 +224,18 @@ const AHP = () => {
 
   return (
     <div className="ml-auto mr-auto text-center my-5" md="8">
+      <div className="d-flex flex-row justify-content-center align-items-stretch">
+        <p className="mr-3">¿Deseas repasar rápidamente el procedimiento?</p>
+        <Link
+          to="/info#ahp"
+          target="_blank"
+          hash="#ahp"
+          style={{ color: "blue", fontWeight: "bold" }}
+        >
+          Haz click aquí
+        </Link>
+        <p>.</p>
+      </div>
       <div>
         <label>Número de Criterios: </label>
         <select
@@ -274,13 +312,20 @@ const AHP = () => {
               onClick={() => {
                 setMostrarCalcular(false);
                 unblockButtonsInputsSelects();
-                setNamesCriterios([]);
-                setNamesAlternativas([]);
-                setMatricesTitles("");
-                const inputs = document.querySelectorAll("input");
-                // Iterar sobre los elementos input y establecer sus valores a una cadena vacía
-                for (let i = 0; i < inputs.length; i++) {
-                  inputs[i].value = "";
+                if (state) {
+                  setNumCriterios(state.criterio.length);
+                  setTimeout(() => {
+                    criteriaAutocompletion(state.criterio);
+                  }, "250");
+                } else {
+                  setNamesCriterios([]);
+                  setNamesAlternativas([]);
+                  setMatricesTitles("");
+                  const inputs = document.querySelectorAll("input");
+                  // Iterar sobre los elementos input y establecer sus valores a una cadena vacía
+                  for (let i = 0; i < inputs.length; i++) {
+                    inputs[i].value = "";
+                  }
                 }
               }}
             >
