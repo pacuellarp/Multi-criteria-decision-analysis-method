@@ -87,7 +87,7 @@ const ResultsAHP = ({
         namesAlternativas={namesAlternativas}
         rankingPorcentaje={rankingPorcentaje}
       />
-      <table>
+      <table border="1" className="ml-auto mr-auto text-center mb-2" md="8">
         <thead>
           <tr>
             <th>Medida de Consistencia</th>
