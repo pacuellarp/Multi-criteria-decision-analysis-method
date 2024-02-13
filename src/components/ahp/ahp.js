@@ -242,7 +242,7 @@ const AHP = ({ state }) => {
           value={numCriterios}
           onChange={(e) => setNumCriterios(parseInt(e.target.value, 10))}
         >
-          {[2, 3, 4, 5].map((option) => (
+          {[2, 3, 4, 5, 6, 7, 8, 9, 10].map((option) => (
             <option key={option} value={option}>
               {option}
             </option>
@@ -255,7 +255,7 @@ const AHP = ({ state }) => {
           value={numAlternativas}
           onChange={(e) => setNumAlternativas(parseInt(e.target.value, 10))}
         >
-          {[2, 3, 4, 5].map((option) => (
+          {[2, 3, 4, 5, 6, 7, 8, 9, 10].map((option) => (
             <option key={option} value={option}>
               {option}
             </option>
