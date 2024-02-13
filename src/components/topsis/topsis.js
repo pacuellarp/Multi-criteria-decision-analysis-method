@@ -107,7 +107,7 @@ const TOPSIS = ({ state }) => {
   const ponderacionCheck = () => {
     const sum = updatedMatrices[0][0].reduce((Suma, a) => Suma + a * 1, 0);
 
-    if (sum !== 1) {
+    if (sum.toFixed(5) * 1 !== 1) {
       return true; // Los pesos de los criterios no suman 100%
     }
 
