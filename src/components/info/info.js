@@ -50,10 +50,10 @@ const InfoComponent = () => {
                 <p>
                   Por lo que, para alcanzar el objetivo, se aplica una serie de
                   comparaciones por parejas entre criterios, se determinará la
-                  importancia de cada criterio, y más adelante, se realizarán
-                  las mismas comparaciones entre alternativas para cada
-                  criterio, evaluando así la importancia de cada alternativa
-                  dentro del criterio i.
+                  importancia de cada uno, y más adelante, se realizarán las
+                  mismas comparaciones entre alternativas para cada criterio,
+                  evaluando así la importancia de cada alternativa dentro de
+                  cada uno de los criterios.
                 </p>
                 <p>
                   La importancia que tiene cada atributo respecto a otro se
@@ -83,7 +83,7 @@ const InfoComponent = () => {
                   posición opuesta deberá tener el inverso multiplicativo del
                   valor ingresado. Por lo tanto, la diagonal de la matriz
                   siempre ha de ser 1, puesto que se estaría comparando el
-                  criterio (o alternativa) con el mismo.{" "}
+                  criterio, alternativa, consigo mismo.{" "}
                   <b>
                     En la página del método, cuando ingreses un valor,
                     inmediatamente, se ingresará el recíproco.
@@ -95,12 +95,26 @@ const InfoComponent = () => {
                   el peso específico que tiene cada criterio o alternativa con
                   respecto a las demás.
                 </p>
+                <p>
+                  Concluyendo, con el fin de poder evaluar consecuentemente
+                  todas las alternativas deberemos crear el ranking de
+                  prioridad. Será el resultado de combinar la importancia
+                  relativa de los criterios junto con la puntuación de las
+                  alternativas.
+                </p>
+
                 <p id="topsis">
-                  Y como último paso, con el fin de poder evaluar
-                  consecuentemente todas las alternativas deberemos crear el
-                  ranking de prioridad. Será el resultado de combinar la
-                  importancia relativa de los criterios junto con la puntuación
-                  de las alternativas.
+                  Finalmente, obtenemos un valor importante: el índice de
+                  consistencia (CR, Consistency Ratio). Esta razón está diseñada
+                  de manera que los valores que exceden de 0.10 son señal de
+                  juicios inconsistentes. Si el grado de consistencia es
+                  aceptable, puede continuarse con el proceso de decisión. Si el
+                  grado de consistencia es inaceptable, quien toma las
+                  decisiones debe reconsiderar y posiblemente modificar sus
+                  juicios sobre las comparaciones de criterios antes de
+                  continuar con el análisis. Se considera que los valores de la{" "}
+                  <b>razón de consistencia de 0.10 o menos</b> son señal de un
+                  nivel razonable de consistencia en las comparaciones pareadas.
                 </p>
               </article>
               <article className="mt-5">
