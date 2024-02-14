@@ -12,3 +12,8 @@ code {
     monospace;
 }
 */
+.bg-warning {       
+  @include media-breakpoint-down(lg) {
+      background:white;
+  }
+}

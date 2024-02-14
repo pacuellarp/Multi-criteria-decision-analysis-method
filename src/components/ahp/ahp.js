@@ -224,17 +224,19 @@ const AHP = ({ state }) => {
 
   return (
     <div className="ml-auto mr-auto text-center my-5" md="8">
-      <div className="d-flex flex-row justify-content-center align-items-stretch">
+      <div className="d-flex flex-column flex-sm-row justify-content-center align-items-stretch">
         <p className="mr-3">¿Deseas repasar rápidamente el procedimiento?</p>
-        <Link
-          to="/info#ahp"
-          target="_blank"
-          hash="#ahp"
-          style={{ color: "blue", fontWeight: "bold" }}
-        >
-          Haz click aquí
-        </Link>
-        <p>.</p>
+        <div className="d-flex flex-row justify-content-center">
+          <Link
+            to="/info#ahp"
+            target="_blank"
+            hash="#ahp"
+            style={{ color: "blue", fontWeight: "bold" }}
+          >
+            Haz click aquí
+          </Link>
+          <p>.</p>
+        </div>
       </div>
       <div>
         <label>Número de Criterios: </label>

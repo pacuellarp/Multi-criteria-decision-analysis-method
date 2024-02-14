@@ -50,7 +50,7 @@ const CriterosAlternativas = ({
     const alternativaId = generateUniqueId(input[1], i);
     alternativasId.push(alternativaId);
     alternativas.push(
-      <div className="d-flex justify-content-center">
+      <div>
         <input
           key={alternativaId} // Asegura que cada input tenga una clave única
           type="text"
@@ -77,7 +77,7 @@ const CriterosAlternativas = ({
       <p>A continuación, introduce tus criterios:</p>
       <p>{criterios}</p>
       <p>Introduce tus alternativas:</p>
-      <p className="d-flex flex-row justify-content-center">{alternativas}</p>
+      <p className="d-flex  flex-wrap justify-content-center">{alternativas}</p>
     </div>
   );
 };

@@ -96,12 +96,16 @@ function IndexNavbar() {
                   <i className="now-ui-icons design_app mr-1"></i>
                   <p>Métodos</p>
                 </DropdownToggle>
-                <DropdownMenu>
-                  <DropdownItem to="/ahp" tag={Link}>
+                <DropdownMenu style={{ backgroundColor: "white" }}>
+                  <DropdownItem to="/ahp" tag={Link} style={{ color: "black" }}>
                     <i className="now-ui-icons business_chart-pie-36 mr-1"></i>
                     Método AHP
                   </DropdownItem>
-                  <DropdownItem to="/topsis" tag={Link}>
+                  <DropdownItem
+                    to="/topsis"
+                    tag={Link}
+                    style={{ color: "black" }}
+                  >
                     <i className="now-ui-icons design_bullet-list-67 mr-1"></i>
                     Método TOPSIS
                   </DropdownItem>
