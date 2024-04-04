@@ -322,13 +322,17 @@ const TOPSIS = ({ state }) => {
         <React.Fragment>
           <div className="ml-auto mr-auto text-center" md="8">
             <br></br>
-            <h2>{["Orden de los criterios"]}</h2>
+            <h2 title="creciente significa que entre más grande mejor y decreciente significa que entre más pequeño mejor">
+              {["Orden de los criterios"]}
+            </h2>
             <OrderTable
               namesCriterios={namesCriterios}
               orderChoices={orderChoices}
               handleOrderChange={handleOrderChange}
             />
-            <h2>{["Ponderación de los criterios"]}</h2>
+            <h2 title="Defina mediante pesos el grado de importancia de cada criterio. La suma de los pesos debe ser igual a uno. Los pesos deben reflejar de forma coherente el grado de importancia de dichos criterios. (Ejemplo: con tres alternativas asignamos pesos de 0.2, 0.5 y 0.3)">
+              {["Ponderación de los criterios"]}
+            </h2>
             <MatrixTOPSIS
               namesCriterios={namesCriterios}
               namesAlternativas={[]}

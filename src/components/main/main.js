@@ -96,6 +96,7 @@ const Main = () => {
                   opcionSeleccionada === "button-1" && "active"
                 }`}
                 onClick={() => handleOpcionSeleccionada("button-1")}
+                title="Seleccione esta opción si la población es menor o igual a 600 habitantes"
               >
                 Sí
               </button>
@@ -105,6 +106,7 @@ const Main = () => {
                   opcionSeleccionada === "button-2" && "active"
                 }`}
                 onClick={() => handleOpcionSeleccionada("button-2")}
+                title="Seleccione esta opción si la población es mayor a 600 habitantes"
               >
                 No
               </button>
@@ -150,6 +152,7 @@ const Main = () => {
                     metodoSeleccionado === "button-3" && "active"
                   }`}
                   onClick={() => handleOpcionesYaTomada("button-3")}
+                  title="Para tomar una decisión multicriterio con base a un proceso de jerarquía analítica (Analytic Hierarchy Procces)"
                 >
                   AHP
                 </button>
@@ -159,6 +162,7 @@ const Main = () => {
                     metodoSeleccionado === "button-4" && "active"
                   }`}
                   onClick={() => handleOpcionesYaTomada("button-4")}
+                  title="Para tomar una decisión multicriterio con base a la Técnica para el orden de preferencia por similitud con la solución ideal (Technique for Order of Preference by Similarity to Ideal Solution)"
                 >
                   TOPSIS
                 </button>

@@ -25,7 +25,9 @@ const ResultsTOPSIS = ({ ratio, namesAlternativas }) => {
 
   return (
     <div className="ml-auto mr-auto text-center" style={{ width: "50%" }}>
-      <h2>Resultados</h2>
+      <h2 title="El ranking indica en orden descendente las alternativas más alejadas al ideal negativo del proyecto y a su vez más cercana al ideal positivo del proyecto. Lo que quiere decir que la alternativa que se ubique en la posición uno de la tabla de resultados, será la mejor alternativa">
+        Resultados
+      </h2>
       <table border="1" className="ml-auto mr-auto text-center" md="8">
         <thead>
           <tr>
