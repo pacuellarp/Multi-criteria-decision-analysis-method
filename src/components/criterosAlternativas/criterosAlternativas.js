@@ -73,13 +73,17 @@ const CriterosAlternativas = ({
   }
 
   return (
-    <div className="ml-auto mr-auto text-center" md="8">
+    <div className="ml-auto mr-auto text-center" md="8" color="blue">
       <p title="Población menor o igual a 600 habitantes use criterios como: Captación, Tratamiento, Almacenamiento. Si es Población mayor a 600 habitantes use criterios como: Técnico, Ambiental, Social, Economico, entre otros">
-        Introduce tus criterios:
+        <span style={{ color: "rgba(37, 150, 190)", fontWeight: "bold" }}>
+          Introduce tus criterios:
+        </span>
       </p>
       <p>{criterios}</p>
       <p title="Alternativas como: Abastos de agua, Planta convencional, Planta compacta, Puntos de suministro, Captación de aguas, entre otras">
-        Introduce tus alternativas:
+        <span style={{ color: "rgba(37, 150, 190)", fontWeight: "bold" }}>
+          Introduce tus alternativas:
+        </span>
       </p>
       <p className="d-flex  flex-wrap justify-content-center">{alternativas}</p>
     </div>

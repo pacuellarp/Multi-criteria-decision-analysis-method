@@ -122,7 +122,9 @@ const MatrixOperationsTOPSIS = ({
     <div className="ml-auto mr-auto text-center" md="8">
       <br></br>
       <h2 title="Indica el valor de cada criterio dentro del proyecto dado el peso asignado a cada criterio y dado los valores ingresados de cada criterio por alternativa.">
-        Matriz de decisión normalizada ponderada
+        <span style={{ color: "rgba(37, 150, 190)" }}>
+          Matriz de decisión normalizada ponderada
+        </span>
       </h2>
       <table border="1" className="ml-auto mr-auto text-center" md="8">
         <thead>
@@ -174,7 +176,9 @@ const MatrixOperationsTOPSIS = ({
       <br></br>
       <br></br>
       <h2 title="Indican qué tan diferente es cada alternativa con respecto a los valores ideales que se pudieran esperar en el proyecto y con respecto a los valores no ideales">
-        Medidas de distancia
+        <span style={{ color: "rgba(37, 150, 190)" }}>
+          Medidas de distancia
+        </span>
       </h2>
       <table border="1" className="ml-auto mr-auto text-center" md="8">
         <thead>

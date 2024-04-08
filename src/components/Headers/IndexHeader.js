@@ -48,7 +48,8 @@ function IndexHeader() {
 
             <h1 className="h1-seo">MC Analysis</h1>
             <h3>
-              Evaluating alternatives using multi-criteria decision methods
+              Evaluación de alternativas utilizando métodos de decisión
+              multicriterio
             </h3>
           </div>
         </Container>

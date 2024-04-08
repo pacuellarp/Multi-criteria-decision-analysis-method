@@ -139,8 +139,13 @@ const TOPSIS = ({ state }) => {
 
     setMatrices([matrizPrincipal]);
 
-    const matrizPrincipalTitle =
-      "Matriz de evaluación de alternativas con respecto a los criterios";
+    const matrizPrincipalTitle = (
+      <p title="Indique mediante la siguiente tabla los valores correspondientes a los criterios respecto a cada alternativa">
+        <span style={{ color: "rgba(37, 150, 190)" }}>
+          Matriz de evaluación de alternativas
+        </span>
+      </p>
+    );
 
     // Establece el título de la matriz principal
 
@@ -323,15 +328,19 @@ const TOPSIS = ({ state }) => {
           <div className="ml-auto mr-auto text-center" md="8">
             <br></br>
             <h2 title="creciente significa que entre más grande mejor y decreciente significa que entre más pequeño mejor">
-              {["Orden de los criterios"]}
+              <span style={{ color: "rgba(37, 150, 190)" }}>
+                Orden de los criterios
+              </span>
             </h2>
             <OrderTable
               namesCriterios={namesCriterios}
               orderChoices={orderChoices}
               handleOrderChange={handleOrderChange}
             />
-            <h2 title="Defina mediante pesos el grado de importancia de cada criterio. La suma de los pesos debe ser igual a uno. Los pesos deben reflejar de forma coherente el grado de importancia de dichos criterios. (Ejemplo: con tres alternativas asignamos pesos de 0.2, 0.5 y 0.3)">
-              {["Ponderación de los criterios"]}
+            <h2 title="Defina mediante pesos el grado de importancia de cada criterio. La suma de los pesos debe ser igual a uno. Los pesos deben reflejar de forma coherente el grado de importancia de dichos criterios. (Ejemplo: con tres alternativas puede asignar pesos como 0.2, 0.5 y 0.3)">
+              <span style={{ color: "rgba(37, 150, 190)" }}>
+                Ponderación de los criterios
+              </span>
             </h2>
             <MatrixTOPSIS
               namesCriterios={namesCriterios}

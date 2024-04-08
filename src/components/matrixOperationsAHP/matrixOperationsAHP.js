@@ -94,7 +94,15 @@ const MatrixOperationsAHP = ({
     }
   }
 
-  const tableTitles = ["Comparación de criterios", ...namesCriterios];
+  const tableTitles = [
+    <span
+      style={{ color: "rgba(37, 150, 190)" }}
+      title="Se adiciona una nueva columna llamada vector de prioridad la cual es un promedio por fila de la tabla resultante. Estos valores de la columna vector de prioridad serán los pesos asignados(nivel de importancia) a cada uno de los criterios bajo la metodología AHP. Observe que estos pesos cuando se suman dan uno o aproximadamente uno"
+    >
+      Comparación de criterios
+    </span>,
+    ...namesCriterios,
+  ];
   const columnNames0 = [...namesCriterios, "Vector de prioridad"];
   const rowNames0 = [...namesCriterios];
   const columnNames1 = [...namesAlternativas, "Vector de prioridad"];

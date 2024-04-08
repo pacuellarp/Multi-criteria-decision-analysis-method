@@ -63,7 +63,9 @@ const ResultsAHP = ({
     <div className="ml-auto mr-auto text-center" style={{ width: "50%" }}>
       <br></br>
       <br></br>
-      <h2>Resultados</h2>
+      <h2 title="La mejor alternativa de las propuestas es la que tiene un índice de prioridad mayor">
+        <span style={{ color: "rgba(37, 150, 190)" }}>Resultados</span>
+      </h2>
       <table border="1" className="ml-auto mr-auto text-center" md="8">
         <thead>
           <tr>

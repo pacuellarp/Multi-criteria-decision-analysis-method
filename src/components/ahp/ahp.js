@@ -126,11 +126,23 @@ const AHP = ({ state }) => {
 
     setMatrices([matrizPrincipal, ...matricesAlternativas]);
 
-    const matrizPrincipalTitle = "Matriz de comparación de criterios";
+    const matrizPrincipalTitle = (
+      <p title="Diligencie conforme a la escala de Saaty. Ejemplo: si considero que el criterio captación es igual de importante al criterio de almacenamiento, le ingreso el valor de 1. Si considero que la captación es extremadamente menos importante que el tratamiento, entonces ingreso en vez de 9 ,1/9 (los demás números se diligenciarán de forma automática)">
+        <span style={{ color: "rgba(37, 150, 190)" }}>
+          Matriz de comparación de criterios
+        </span>
+      </p>
+    );
 
     // Genera títulos para las matrices de valoraciones de cada criterio
     const criteriosTitles = namesCriterios.map((criterio) => {
-      return `Matriz de valoraciones para ${criterio}`;
+      return (
+        <p title="Ejemplo: Recordando que se considera la alternativa plantas convencionales igual de importante a la alternativa soluciones individuales (con respecto al criterio) entonces ingresar el valor de 1. Sí por el contrario se considera que la alternativa plantas convencionales es extremadamente más importante que la alternativa soluciones individuales (con respecto al criterio) entonces ingresar el valor de 9. Pero si se considera que es extremadamente menos importante (con respecto al criterio) en vez de ingresar 9, ingresar 1/9">
+          <span style={{ color: "rgba(37, 150, 190)" }}>
+            Matriz de valoraciones para {criterio}
+          </span>
+        </p>
+      );
     });
 
     // Establece el título de la matriz principal y los títulos de las matrices de valoraciones
